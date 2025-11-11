@@ -742,11 +742,11 @@
 <small id="customerHint" class="hint">※ スプレッドシートから読み込み中です</small>
 
         <div class="label">お客様名<span class="required">必須</span></div>
-        <input type="text" id="name" placeholder="お名前を入力してください" oninput="saveInput('name')">
+        <input type="text" id="name" placeholder="お名前を入力してください">
 
 
         <div class="label">電話番号<span class="required">必須</span></div>
-        <input type="tel" id="phone" placeholder="電話番号を入力してください" oninput="saveInput('phone')">
+        <input type="tel" id="phone" placeholder="電話番号を入力してください">
 
         <div class="label">ご来店回数<span class="required">必須</span></div>
         <div class="visit-buttons">
@@ -1066,21 +1066,6 @@ function applyCustomerFilter(){
         };
 
         let selectedMenuTime = 0;
-
-        // 入力内容をローカルストレージに保存
-        function saveInput(id) {
-            const value = document.getElementById(id).value;
-            localStorage.setItem(id, value);
-        }
-
-        // ページが読み込まれたときに前回の入力内容を復元
-        document.addEventListener('DOMContentLoaded', function () {
-            const savedName = localStorage.getItem('name');
-            const savedPhone = localStorage.getItem('phone');
-
-            if (savedName) document.getElementById('name').value = savedName;
-            if (savedPhone) document.getElementById('phone').value = savedPhone;
-        });
 
         // スムーズスクロール
         document.querySelectorAll('.side-nav a').forEach(anchor => {
